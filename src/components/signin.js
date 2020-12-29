@@ -9,6 +9,7 @@ import {
 import {Emailvalidate,Validpassword} from '../common/validate.js';
 import { ToastContainer, toast  } from 'react-toastify';
  import 'react-toastify/dist/ReactToastify.css'
+ import ReactTooltip from "react-tooltip";
 
 toast.configure()
 class Signin extends React.Component{
@@ -160,7 +161,7 @@ class Signin extends React.Component{
          this.setState({disable:false});
          }
        else{
-         this.setState({password:value,passwordError:true,validpasswordError:"Password Should Contain Atleast 6 Character",passwordvalue:false})
+         this.setState({password:value,passwordError:true,validpasswordError:"Password Should Contain Atleast 6 Character Eg:Example@12",passwordvalue:false})
          this.setState({disable:false});
          }
         this.setState({password:value,passwordError:false})
@@ -214,9 +215,13 @@ class Signin extends React.Component{
                                     </div>
                                     <div className="col-md-6">
                                         <div className="form-group">
-                                            <input type="password" className="form-control" placeholder="Enter Password" name="password" value={this.state.password} onChange={(e)=>this.onChangevalue(e)}/>
+                                            <input type="password" className="form-control" data-tip data-for="registerTip" placeholder="Enter Password" name="password" value={this.state.password} onChange={(e)=>this.onChangevalue(e)}/>
+                                             <ReactTooltip id="registerTip" place="top" effect="solid">
+                             Combination of min 6 characters with atleast one Number,@,$,Caps and Small Letter 
+                                            </ReactTooltip>
                           {this.state.passwordError?<label style={{color:"red"}}>Password is Required</label>:""}
                           {this.state.validpasswordError!=="" && !this.state.passwordError?<label style={{color:"red"}}>{this.state.validpasswordError}</label>:""}
+                                       
                                         </div>
                                         <input type="button" className="btnRegister"onClick={this.validlogin}  value="Register"/>
                                     </div>
