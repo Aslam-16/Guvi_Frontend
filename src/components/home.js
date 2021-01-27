@@ -92,7 +92,7 @@ class Home extends React.Component{
       }
       
       
-      axios.post("https://bdd98d5588f4.ngrok.io/api/v1/users/edituser",signupFromData)
+      axios.post("https://222d5583ef30.ngrok.io/api/v1/users/edituser",signupFromData)
       .then((response) => {
         if(response.data.status){
           toast.success(response.data.message,{position:toast.POSITION.TOP_RIGHT});
@@ -113,7 +113,7 @@ class Home extends React.Component{
 componentDidMount(){
         const option=this;
         const id=localStorage.getItem("id")
-        axios.post('https://bdd98d5588f4.ngrok.io/api/v1/users/viewuser',
+        axios.post('https://222d5583ef30.ngrok.io/api/v1/users/viewuser',
         {id:id})
         .then((response) => {
             
