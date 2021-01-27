@@ -65,7 +65,7 @@ class Login extends React.Component{
         email:mail,
         password:password
       }
-      axios.post("https://bdd98d5588f4.ngrok.io/api/v1/users/isAuth",formdata)
+      axios.post("https://222d5583ef30.ngrok.io/api/v1/users/isAuth",formdata)
       .then((response) => {
         if(response.data.status){
           localStorage.setItem("id",response.data.data._id)
